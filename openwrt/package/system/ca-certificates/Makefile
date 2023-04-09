@@ -7,13 +7,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ca-certificates
-PKG_VERSION:=20210119
+PKG_VERSION:=20230311
 PKG_RELEASE:=1
 PKG_MAINTAINER:=
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=@DEBIAN/pool/main/c/ca-certificates
-PKG_HASH:=daa3afae563711c30a0586ddae4336e8e3974c2b627faaca404c4e0141b64665
+PKG_SOURCE_URL:=http://deb.debian.org/debian/pool/main/c/ca-certificates
+PKG_HASH:=83de934afa186e279d1ed08ea0d73f5cf43a6fbfb5f00874b6db3711c64576f3
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -39,7 +39,7 @@ define Build/Prepare
 	$(Build/Patch)
 endef
 
-MAKE_PATH := work
+MAKE_PATH := ca-certificates
 
 define Build/Install
 	mkdir -p \
