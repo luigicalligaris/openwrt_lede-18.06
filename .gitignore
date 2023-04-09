@@ -10,3 +10,6 @@ openwrt/logs
 openwrt/files
 openwrt/package/feeds/dragino
 openwrt/build.log
+luci/modules/luci-base/src/po2lmo
+luci/modules/luci-base/src/po2lmo.o
+luci/modules/luci-base/src/template_lmo.o
