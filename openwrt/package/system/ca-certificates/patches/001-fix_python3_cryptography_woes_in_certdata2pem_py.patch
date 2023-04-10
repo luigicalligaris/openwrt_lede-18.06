@@ -1,0 +1,32 @@
+--- a/ca-certificates/mozilla/certdata2pem.py
++++ b/ca-certificates/mozilla/certdata2pem.py
+@@ -21,16 +21,12 @@
+ # USA.
+ 
+ import base64
+-import datetime
+ import os.path
+ import re
+ import sys
+ import textwrap
+ import io
+ 
+-from cryptography import x509
+-
+-
+ objects = []
+ 
+ # Dirty file parser.
+@@ -122,12 +118,6 @@ for obj in objects:
+         if not obj['CKA_LABEL'] in trust or not trust[obj['CKA_LABEL']]:
+             continue
+ 
+-        cert = x509.load_der_x509_certificate(bytes(obj['CKA_VALUE']))
+-        if cert.not_valid_after < datetime.datetime.utcnow():
+-            print('!'*74)
+-            print('Trusted but expired certificate found: %s' % obj['CKA_LABEL'])
+-            print('!'*74)
+-
+         bname = obj['CKA_LABEL'][1:-1].replace('/', '_')\
+                                       .replace(' ', '_')\
+                                       .replace('(', '=')\
